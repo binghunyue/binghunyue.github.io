@@ -99,29 +99,24 @@ function add() {
    var str = 'abc';
    var str1 = str.toUpperCase();
    document.write(str1);			//输出ABC
-   
    ```
-
+   
 9. toLowerCase(): 将字符串转换成小写
 
    ```javascript
    var str = 'ABC';
    var str1 = str.toLowerCase();
    document.write(str1);			//输出abc
-   
-   
    ```
-
+   
 10. split(): 将字符串拆分为数组
 
     ```javascript
     var str = 'A-B-C';
     var str1 = str.split(‘-’);		//str1==>是数组
     document.write(str1);			//输出A,B,C
-    
-    
     ```
-
+    
 11. 例题：去除字符串中的非数字字符
 
     ```javascript
@@ -133,8 +128,6 @@ function add() {
     var str2 = str1.join('');			// 把数组拼接成字符串
     str2 = str2.replace(/NaN/g,'');		// 通过全局搜索把字符串中的所有NaN改成‘’
     document.write(str2);				// 输出字符串中的数字
-    
-    
     ```
 
 
@@ -148,18 +141,16 @@ function add() {
    var brr = ['word']
    var crr = arr.concat(brr)
    document.write(crr);		//输出 hello，word
-   
    ```
-
+   
 2. join(): 把数组的所有元素放入到一个字符串中，通过制定的分隔符进行分割（用分隔符分割数组，最后变成一个数组）
 
    ```javascript
    var arr = [1,2,3];
    var brr = arr.join('===>');
    document.write(brr);		//输出 ‘1===>2===>3’
-   
    ```
-
+   
 3. pop(): 删除并返回数组的最后一个元素
 
    ```javascript
@@ -167,9 +158,8 @@ function add() {
    var brr = arr.pop();
    document.write(brr);		//输出 3
    document.write(arr);		//输出 1,2
-   
    ```
-
+   
 4. shift(): 删除并返回数组的第一个元素
 
    ```javascript
@@ -177,9 +167,8 @@ function add() {
    var brr = arr.shift();
    document.write(brr);		//输出 1
    document.write(arr);		//输出 2,3
-   
    ```
-
+   
 5. push(): 向数组末尾添加新的元素，并返回新的长度
 
    ```javascript
@@ -187,9 +176,8 @@ function add() {
    var brr = arr.push('000');
    document.write(brr);		//输出 4(代表4个元素)
    document.write(arr);		//输出 1,2,3,000
-   
    ```
-
+   
 6. unshift(): 向数组开头添加新的元素，并返回新的长度
 
    ```javascript
@@ -197,18 +185,16 @@ function add() {
    var brr = arr.unshift('000');
    document.write(brr);		//输出 4(代表4个元素)
    document.write(arr);		//输出 000,1,2,3
-   
    ```
-
+   
 7. reverse(): 颠倒数组中元素的顺序
 
    ```javascript
    var arr = [1,2,3];
    var brr = arr.reverse();
    document.write(brr);		//输出 3,2,1,
-   
    ```
-
+   
 8. slice(): 从某个已有的数组返回选定的值（截取功能）
 
    ```javascript
@@ -217,18 +203,16 @@ function add() {
    	//第一个参数==>2:代表下标（从0开始数）
        //第二个参数==>5:代表实际位置（从1开始数）
    document.write(brr);		//输出 c,d,e
-   
    ```
-
+   
 9. sort(): 对数组进行排序（按照数字的类型排列）
 
    ```javascript
    var arr = [1,3,7,5,11,2,9];
    var brr = arr.sort();
    document.write(brr);		//输出 1,11,2,3,5,7,9
-   
    ```
-
+   
 10. splice(): 删除元素，向数组添加新元素（用指定元素替换截取的元素）
 
     ```javascript
@@ -239,17 +223,14 @@ function add() {
     	//第三个参数==>*****:用该字符替换截取的元素
     document.write(arr);		//输出 a*****e
     document.write(brr);		//输出 b,c,d
-    
-    
     ```
-
+    
 11. toString(): 把数组转换成字符串，并返回结果
 
     ```javascript
     var arr = [1,3,7];
     var brr = arr.toString();
     document.write(typeof brr);		//输出 string
-    
     ```
 
 
@@ -262,37 +243,32 @@ function add() {
 
    ```javascript
    document.write(Math.min(10,3,7,8));			// 输出3
-   
    ```
-
+   
 2. Math.max(参数一，参数二，参数三)：求出参数中最大值
 
    ```javascript
    document.write(Math.max(10,3,7,8));			// 输出10
-   
    ```
-
+   
 3. Math.floor()：舍掉小数，得到整数
 
    ```javascript
    document.write(Math.floor(4.984));			// 输出4
-   
    ```
-
+   
 4. Math.ceil()：有小数就进一取整
 
    ```javascript
    document.write(Math.ceil(4.184));			// 输出5
-   
    ```
-
+   
 5. Math.abs()：取绝对值
 
    ```javascript
    document.write(Math.abs(-5));				// 输出5
-   
    ```
-
+   
 6. Math.sqrt()：开平方
 
    ```javascript
