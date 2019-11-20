@@ -1,359 +1,66 @@
-### arguments使用
-
-arguments可以获取函数的**实参**：
-
-```javascript
-function add() {
- 	var res = 0;
- 	if (arguments) {
- 		for (var i = 0; i < arguments.length; i++) {
-			if (typeof arguments[i] == "number") {
- 				res += arguments[i];
- 			}
- 		}
- 	}
- 	console.log(res);
- }
- add(3, 4, 5);		//输出12
-```
-
-> arguments[0]		// 3
->
-> arguments[1]		// 4
->
-> arguments[2]		// 5
-
-
-
-### 字符串方法
-
-1. charAt(): 返回指定位置的字符串（从0开始算起）
-
-   ```javascript
-   var str = 'abc';
-   var str1 = str.charAt(1);
-   document.write(str1);			//输出b
-   ```
-
-2. indexOf(): 返回字符在字符串中首次出现的位置（如果没有则返回-1）
-
-   ```javascript
-   var str = 'abcb';
-   var str1 = str.indexOf('b');
-   document.write(str1);			//输出1
-   ```
-
-3. lastIndexOf(): 返回字符在字符串中“最后一次出现的位置”
-
-   ```javascript
-   var str = 'abcb';
-   var str1 = str.lastIndexOf('b');
-   document.write(str1);			//输出3
-   ```
-
-4. replace(): 替换，将字符串的部分内容替换为另外的内容
-
-   ```javascript
-   var str = 'abc';
-   var str1 = str.replace('a','1');
-   document.write(str1);			//输出1bc
-   ```
-
-5. slice(): 截取 （如果是负数则从后向前截取）
-
-   ```javascript
-   var str = 'abcdefg';
-   var str1 = str.slice(1,5);
-   document.write(str1);			//输出bcde
-   var str2 = str.slice(2);
-   document.write(str2);			//输出cdefg
-   var str3 = str.slice(-1);
-   document.write(str3);			//输出g
-   var str3 = str.slice(-2);
-   document.write(str3);			//输出fg
-   ```
-
-6. substring(): 截取 （如果是负数则返回整个字符串）
-
-   ```javascript
-   var str = 'abcdefg';
-   var str1 = str.substring(1,5);
-   document.write(str1);			//输出bcde
-   var str2 = str.substring(2);
-   document.write(str2);			//输出cdefg
-   var str3 = str.substring(-1);
-   document.write(str3);			//输出abcdefg
-   ```
-
-7. trim():  去除前后空格
-
-   ```javascript
-   var str = '  abcdefg  ';
-   var str1 = str.trim();
-   document.write(str1);			//输出abcdefg
-   ```
-
-8. toUpperCase(): 将字符串改换成大写
-
-   ```javascript
-   var str = 'abc';
-   var str1 = str.toUpperCase();
-   document.write(str1);			//输出ABC
-   ```
-   
-9. toLowerCase(): 将字符串转换成小写
-
-   ```javascript
-   var str = 'ABC';
-   var str1 = str.toLowerCase();
-   document.write(str1);			//输出abc
-   ```
-   
-10. split(): 将字符串拆分为数组
-
-    ```javascript
-    var str = 'A-B-C';
-    var str1 = str.split(‘-’);		//str1==>是数组
-    document.write(str1);			//输出A,B,C
-    ```
-    
-11. 例题：去除字符串中的非数字字符
-
-    ```javascript
-    var str= 'cvs1r#356g7ad';
-    var str1 = str.split('');			// 先把字符串拆成数组
-    for(var i=0;i<str.length;i++){
-        str1[i] = parseInt(str1[i]);	// 把数组的每个元素强制转换一下，如果不是数
-    }									// 字会自动转成NaN
-    var str2 = str1.join('');			// 把数组拼接成字符串
-    str2 = str2.replace(/NaN/g,'');		// 通过全局搜索把字符串中的所有NaN改成‘’
-    document.write(str2);				// 输出字符串中的数字
-    ```
-
-
-
-### 数组中的常用方法
-
-1. concat(): 连接两个或多个数组，并返回结果
-
-   ```javascript
-   var arr = ['hello']
-   var brr = ['word']
-   var crr = arr.concat(brr)
-   document.write(crr);		//输出 hello，word
-   ```
-   
-2. join(): 把数组的所有元素放入到一个字符串中，通过制定的分隔符进行分割（用分隔符分割数组，最后变成一个数组）
-
-   ```javascript
-   var arr = [1,2,3];
-   var brr = arr.join('===>');
-   document.write(brr);		//输出 ‘1===>2===>3’
-   ```
-   
-3. pop(): 删除并返回数组的最后一个元素
-
-   ```javascript
-   var arr = [1,2,3];
-   var brr = arr.pop();
-   document.write(brr);		//输出 3
-   document.write(arr);		//输出 1,2
-   ```
-   
-4. shift(): 删除并返回数组的第一个元素
-
-   ```javascript
-   var arr = [1,2,3];
-   var brr = arr.shift();
-   document.write(brr);		//输出 1
-   document.write(arr);		//输出 2,3
-   ```
-   
-5. push(): 向数组末尾添加新的元素，并返回新的长度
-
-   ```javascript
-   var arr = [1,2,3];
-   var brr = arr.push('000');
-   document.write(brr);		//输出 4(代表4个元素)
-   document.write(arr);		//输出 1,2,3,000
-   ```
-   
-6. unshift(): 向数组开头添加新的元素，并返回新的长度
-
-   ```javascript
-   var arr = [1,2,3];
-   var brr = arr.unshift('000');
-   document.write(brr);		//输出 4(代表4个元素)
-   document.write(arr);		//输出 000,1,2,3
-   ```
-   
-7. reverse(): 颠倒数组中元素的顺序
-
-   ```javascript
-   var arr = [1,2,3];
-   var brr = arr.reverse();
-   document.write(brr);		//输出 3,2,1,
-   ```
-   
-8. slice(): 从某个已有的数组返回选定的值（截取功能）
-
-   ```javascript
-   var arr = ['a','b','c','d','e'];
-   var brr = arr.slice(2,5)		
-   	//第一个参数==>2:代表下标（从0开始数）
-       //第二个参数==>5:代表实际位置（从1开始数）
-   document.write(brr);		//输出 c,d,e
-   ```
-   
-9. sort(): 对数组进行排序（按照数字的类型排列）
-
-   ```javascript
-   var arr = [1,3,7,5,11,2,9];
-   var brr = arr.sort();
-   document.write(brr);		//输出 1,11,2,3,5,7,9
-   ```
-   
-10. splice(): 删除元素，向数组添加新元素（用指定元素替换截取的元素）
-
-    ```javascript
-    var arr = ['a','b','c','d','e'];
-    var brr = arr.splice(1,3,'*****')		
-    	//第一个参数==>1:代表下标（从0开始数）
-        //第二个参数==>3:截取3个元素
-    	//第三个参数==>*****:用该字符替换截取的元素
-    document.write(arr);		//输出 a*****e
-    document.write(brr);		//输出 b,c,d
-    ```
-    
-11. toString(): 把数组转换成字符串，并返回结果
-
-    ```javascript
-    var arr = [1,3,7];
-    var brr = arr.toString();
-    document.write(typeof brr);		//输出 string
-    ```
-
-
-
-### 数学对象：Math
-
-​	方法：
-
-1. Math.min(参数一，参数二，参数三)：求出参数中最小值
-
-   ```javascript
-   document.write(Math.min(10,3,7,8));			// 输出3
-   ```
-   
-2. Math.max(参数一，参数二，参数三)：求出参数中最大值
-
-   ```javascript
-   document.write(Math.max(10,3,7,8));			// 输出10
-   ```
-   
-3. Math.floor()：舍掉小数，得到整数
-
-   ```javascript
-   document.write(Math.floor(4.984));			// 输出4
-   ```
-   
-4. Math.ceil()：有小数就进一取整
-
-   ```javascript
-   document.write(Math.ceil(4.184));			// 输出5
-   ```
-   
-5. Math.abs()：取绝对值
-
-   ```javascript
-   document.write(Math.abs(-5));				// 输出5
-   ```
-   
-6. Math.sqrt()：开平方
-
-   ```javascript
-   document.write(Math.sqrt(64));				// 输出8
-   ```
-
-7. Math.random()：随机数
-
-   ```javascript
-   document.write(Math.random());				// 输出0~1之间的随机数
-   ```
-
-8. Math.round()：四舍五入取整
-
-   ```javascript
-   document.write(Math.round(6.3));				// 输出3
-   ```
-
-
-
-### js中的日期对象
-
-​			new Date()
-
-### 日期对象的方法
-
-**假设今天日期是：	2019/10/14 	19:21:32	星期一**
-
-*语法：日期对象.方法*
-
-```javascript
-var date = new Date();
-```
-
-1. getTime()	===>	时间戳
-
-   从1970年1月1日0点0分开始，到现在的毫秒数
-
-   ```javascript
-   date.getTime();				// 输出 1571052551929
-   ```
-
-2. getFullYear()   ===>   年
-
-   ```javascript
-   date.getFullYear();			// 输出 2019
-   ```
-
-3. getMonth()  ===>  月
-
-   1. 中国月份：1-12
-
-   2. 国外月份：0-11
-
-      ```javascript
-      date.getMonth();			// 输出 9 （以国外月份为准）
-      date.getMonth()+1;			// 输出 10 （中国实际月份）
-      ```
-
-4. getDate()  ===>   日
-
-   ```JavaScript
-   date.getDate();				// 输出 14
-   ```
-
-5. getDay()  ===>  星期
-
-   ```javascript
-   date.getDay();				// 输出 1
-   ```
-
-6. getHours()  ===>  小时
-
-   ```JavaScript
-   date.getHours();			// 输出 19
-   ```
-
-7. getMinutes()  ===>  分钟
-
-   ```JavaScript
-   date.getMinutess();			// 输出 21
-   ```
-
-8. getSecounds()  ===>  秒
-
-   ```JavaScript
-   date.getSecounds();			// 输出 32
-   ```
+### 求职简历
+
+#### 基本信息
+
+------
+
+- ##### 	姓名：张志强
+
+- ##### 	手机号：177-5698-7833
+
+- ##### 	QQ邮箱：2449136379@qq.com
+
+- ##### 	求职意向：web前端
+
+#### 专业技能
+
+---
+
+- Web开发：熟练掌握了HTML，css,h5,css3,以及javascript的应用，了解node和es6的简单用。  前端框架：掌握了Bootstrap/ Vue 的基础使用 。  
+- 前端工具：能够熟练地使用Sass进行样式代码的编写，能够使用gulp进行基础的操作（监听，压缩，sass转换成css等），也掌  握了npm的简单的命令，同时也掌握了对于GitHub的基础使用。
+- 数据库相关：掌握了mysql，SQL sever的增删改查 
+- 版本管理、文档和自动化部署工具：应用IIS部署过前端官网。 
+-  自我评价：学习能力强，能够吃苦耐劳，喜欢探究新的知识，遇到难题喜欢钻研。
+
+#### 工作经历
+
+- 公司名称：知未立新教育科技有限公司	
+- 工作时间：2019年7月 - 2019年11月
+- 部门：技术部
+- 工作内容：网站开发
+  - 负责公司的前端界面的设计，主要是根据现在比较流行的模板进行选择排版，然后根据领导的要求还原模板的样式，使用了  HTML，css,javascript,jquery,npm等技术  。
+  - 和公司其他人进行合作开发，使用了github工具进行代码的互传 。
+  - 在开发过程中，提出了项目设计不合理的地方，然后重新更改。  
+  - 开发完成后，录入了数据，进行测试 。
+  - 参与公司统一组织的技能培训，并且通过考核获得蓝桥杯python中级证书  。
+
+#### 项目经历
+
+- 名称：组个局
+- 开发时间：2019年7月到2019年8月
+- 项目内容：
+  - 根据公司提供的设计图，编写静态界面还原  
+  - 能够同时在不同屏幕大小的设备上显示，按照排版要求不会错乱，全屏页的体验形式（响应式布局）  
+  - 使用了HTML，scss，gulp,npm,javascript,jquery和fullpage.js插件  
+  - 组个局官网主要是展示APP的使用，及宣传  
+  - 官网地址：http://zugeju.vip/
+
+#### 教育经历
+
+---
+
+- 学校名称：安徽工业经济职业技术学院
+- 时间：2017年9月 - 2020年5月
+- 专业：软件技术
+- 学院：计算机与艺术系
+- 校园经历：
+  - 参加了大学生创意比赛，加入了绘画社团  
+  - 在校期间获得了计算机二级证书，一等奖学金一次，三等奖学金一次，优秀团员，三好学生等奖项  
+  - 在校期间学习了java，C#，SQL sever，ps,办公自动化等，并且专业知识测评成绩高于85分  
+  - 通过在学校的学习，完成了以下项目：  
+    - QQ 邮箱：以PC端QQ邮箱为样式自己模仿了一个：使用了HTML，CSS ，Vue ，Element，JavaScript，Jquery方面的知识，完成了PC端QQ邮箱界面的单页面跳转（使用vue-router实现），表单验证，更改字体样式等功能。
+    - 微信：以移动端微信的样式进行模仿，使用了HTML+css+Vue+Vux+javascript等知识，完成了移动端微信界面的切换，发送消息、表情等功能  
+    - QQ操作系统：使用C#语言结合SQL sever数据库独立完成了QQ操作系统，可以进行注册账号，设置头像，收发消息等功能  
+
+
+
